@@ -1,6 +1,14 @@
-#!/bin/sh
+#!/bin/bash
+##############################################################################
+# Modified from github.com/popcornmix/omxplayer/prepare-native-raspbian.sh   #
+##############################################################################
+#####################################################################
+# Todo: Add needed pacman commands to get all needed libs and such. #
+#####################################################################
+
 git clone https://github.com/popcornmix/omxplayer
 cd omxplayer
+
 if [ -e "patch.flag" ]
 then
 	echo "Makefiles already patched, nothing to do here"
@@ -10,7 +18,6 @@ else
 
 CFLAGS +=  -mfloat-abi=hard -mcpu=arm1176jzf-s -fomit-frame-pointer -mabi=aapcs-linux -mtune=arm1176jzf-s -mfpu=vfp -Wno-psabi -mno-apcs-stack-check -O3 -mstructure-size-boundary=32 -mno-sched-prolog -march=armv6zk `pkg-config dbus-1 --cflags`
 
-BUILDROOT	:=/usr/local/src/omxplayer
 TOOLCHAIN	:=/usr/
 LD		:= \$(TOOLCHAIN)/bin/ld
 CC		:= \$(TOOLCHAIN)/bin/gcc
