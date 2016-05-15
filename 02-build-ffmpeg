@@ -1,4 +1,7 @@
 #!/bin/bash
+#################################################################################
+# Configure options taken from github.com/popcornmix/omxplayer/Makefile.ffmpeg. #
+#################################################################################
 cd omxplayer
 git clone git://source.ffmpeg.org/ffmpeg ffmpeg -b release/3.0 --depth=1
 mkdir ffmpeg_compiled
