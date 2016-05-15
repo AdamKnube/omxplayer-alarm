@@ -1,3 +1,10 @@
 #!/bin/bash
 cd omxplayer
 make -j2
+if [ -e omxplayer-dist.tgz ]; then
+	mkdir -p /opt/omxplayer
+	cp -rv omxplayer-dist/usr/* /opt/omxplayer/
+	echo "Success!"
+else
+	echo "Something went wrong building omxplayer!"
+fi
